@@ -1,0 +1,4 @@
+Hola este es un mensaje de prueba.
+Estamos utilizando el programa para calcular costos.
+Queremos verificar cómo se transforman las palabras largas.
+Finalmente vamos a enviar comunicar programar.
