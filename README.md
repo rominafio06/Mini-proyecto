@@ -6,12 +6,10 @@ Utiliza un archivo de configuración (**contenido.txt**) y un archivo de entrada
 ## Archivos requeridos
 1. **Sin título0.py**: Script principal en Python.  
 2. **contenido.txt**: Archivo de configuración que contiene:  
-   ```
    M
    costo_palabra_corta
    costo_palabra_larga
    costo_infinitivo
-   ```
 Donde:
    - **M** = límite de caracteres para considerar una palabra como "corta".  
    - **costo_palabra_corta** = costo asignado a palabras de longitud menor o igual a M.  
