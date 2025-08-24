@@ -1,9 +1,11 @@
-def cargarDatos(contenido):
+def cargarDatos(ruta="contenido.txt"):
     """
-    Recibe el contenido del archivo de configuración como string.
-    Ejemplo:
-    "10\n0.2\n0.5\n0.3"
+    Lee el archivo de configuración
+    y devuelve el diccionario de datos.
     """
+    with open(ruta, "r", encoding="utf-8") as f:
+        contenido = f.read()
+
     lineas = contenido.strip().splitlines()
     M = int(lineas[0])
     corta = float(lineas[1])
@@ -11,7 +13,6 @@ def cargarDatos(contenido):
     infinitivo = float(lineas[3])
 
     return {"M": M, "Corta": corta, "Larga": larga, "Infinitivo": infinitivo}
-
 
 def calcularCostos(datos, contenido):
     """
@@ -43,7 +44,6 @@ def cambiarMensaje(datos, contenido):
     Genera un nuevo mensaje aplicando las reglas:
     - Palabras largas se acortan a M-1 caracteres y se añade '#'
     - El punto final se reemplaza con 'END'
-    Retorna el nuevo mensaje como string.
     """
     M = datos["M"]
 
@@ -79,21 +79,17 @@ def cambiarMensaje(datos, contenido):
     return "\n".join(nuevo_mensaje)
 
 
-# ============================
-# Ejemplo de uso (sin archivos)
-# ============================
 if __name__ == "__main__":
-    # Contenido de los "archivos"
-    costos_txt = "10\n0.2\n0.5\n0.3"
-    mensaje_txt = "Hola este es un mensaje para probar enviar comunicar programar."
+    datos = cargarDatos("contenido.txt")
 
-    # Cargar datos
-    datos = cargarDatos(costos_txt)
+    with open("mensaje.txt", "r", encoding="utf-8") as f:
+        mensaje_txt = f.read()
 
-    # Calcular costo
     costo = calcularCostos(datos, mensaje_txt)
     print("Costo total del mensaje: $", costo)
 
-    # Cambiar mensaje
     nuevo_mensaje = cambiarMensaje(datos, mensaje_txt)
     print("Mensaje transformado:\n", nuevo_mensaje)
+
+
+
